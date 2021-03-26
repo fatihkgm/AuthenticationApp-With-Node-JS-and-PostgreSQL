@@ -49,6 +49,17 @@ app.post('/users/register', async (req, res) => {
     res.render('register', { errors, name, email, password, password_confirm });
   } else {
     hashedPassword = await bcrypt.hash(password, 10);
+    pool.query(
+      `SELECT * FROM users
+        WHERE email = $1`,
+      [email],
+      (err, results) => {
+        if (err) {
+          console.log(err);
+        }
+        console.log(results.rows);
+      }
+    );
   }
 });
 
