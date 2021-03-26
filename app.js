@@ -12,11 +12,11 @@ app.get('/', (req, res) => {
 app.get('/register', (req, res) => {
   res.render('register');
 });
-app.get('login', (req, res) => {
+app.get('/login', (req, res) => {
   res.render('login');
 });
 
-app.get('userpanel', (req, res) => {
+app.get('/userpanel', (req, res) => {
   res.render('userpanel');
 });
 
