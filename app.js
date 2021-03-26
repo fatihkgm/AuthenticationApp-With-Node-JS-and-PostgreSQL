@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const { pool } = require('./config');
 const ejs = require('ejs');
+const bcrypt = require('bcrypt');
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
@@ -46,6 +47,8 @@ app.post('/users/register', async (req, res) => {
 
   if (errors.length > 0) {
     res.render('register', { errors, name, email, password, password_confirm });
+  } else {
+    hashedPassword = await bcrypt.hash(password, 10);
   }
 });
 
