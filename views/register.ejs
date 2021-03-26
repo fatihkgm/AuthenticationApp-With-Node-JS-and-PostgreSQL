@@ -7,12 +7,13 @@
     width="72"
     height="72"
   />
-  <form class="form-register" action="register" method="POST">
+  <form class="form-register" action="/users/register" method="POST">
     <h1 class="h3 mb-3 font-weight-normal">Please Register</h1>
     <label for="name" class="sr-only">Name</label>
     <input
       type="text"
       id="name"
+      name="name"
       class="form-control"
       placeholder="Your Name"
       required
@@ -22,6 +23,7 @@
     <input
       type="email"
       id="email"
+      name="email"
       class="form-control"
       placeholder="Email address"
       required
@@ -31,6 +33,7 @@
     <input
       type="password"
       id="password"
+      name="password"
       class="form-control"
       placeholder="Password"
       required
@@ -39,6 +42,7 @@
     <input
       type="password"
       id="password_confirm"
+      name="password_confirm"
       class="form-control"
       placeholder="Confirm Password"
       required
@@ -53,7 +57,7 @@
     </button>
     <p class="help-block mt-5 mb-3 text-muted">
       Already register...!
-      <a href="/"> Login </a>
+      <a href="/users/login"> Register </a>
     </p>
   </form>
 </div>
