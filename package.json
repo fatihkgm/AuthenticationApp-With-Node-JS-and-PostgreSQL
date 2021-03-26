@@ -1,7 +1,7 @@
 {
   "name": "authenticationapp-with-node-js-and-postgresql",
   "version": "1.0.0",
-  "description": "",
+  "description": "requested by learners.ai company",
   "main": "index.js",
   "scripts": {
     "start": "node app.js",
