@@ -1,8 +1,12 @@
 const express = require('express');
 const app = express();
+const ejs = require('ejs');
+
+app.set('view engine', 'ejs');
+app.use(express.static('public'));
 
 app.get('/', (req, res) => {
-  res.send('hello');
+  res.render('index');
 });
 
 let port = process.env.PORT;
