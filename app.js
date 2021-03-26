@@ -9,6 +9,17 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
+app.get('/register', (req, res) => {
+  res.render('register');
+});
+app.get('login', (req, res) => {
+  res.render('login');
+});
+
+app.get('userpanel', (req, res) => {
+  res.render('userpanel');
+});
+
 let port = process.env.PORT;
 if (port == null || port == '') {
   port = 5000;
