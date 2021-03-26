@@ -9,6 +9,7 @@
   />
   <form class="form-register" action="/users/register" method="POST">
     <h1 class="h3 mb-3 font-weight-normal">Please Register</h1>
+    
     <label for="name" class="sr-only">Name</label>
     <input
       type="text"
@@ -55,10 +56,16 @@
     >
       Sign in
     </button>
-    <p class="help-block mt-5 mb-3 text-muted">
+    <p class="help-block mb-3 text-muted">
+      <% if (typeof errors != 'undefined') { %><% errors.forEach(error => { %>
+      <p class="help-block  mb-3 text-muted">*<%= error.message %></p>
+      <% }) %> <% } %>
+    </p>
+    <p class="help-block  mb-3 text-muted">
       Already registered...!
       <a href="/users/login"> Login </a>
     </p>
+    
   </form>
 </div>
 
