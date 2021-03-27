@@ -3,10 +3,22 @@ const app = express();
 const { pool } = require('./config');
 const ejs = require('ejs');
 const bcrypt = require('bcrypt');
+const session = require('express-session');
+const flash = require('express-flash');
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
+app.use(flash());
 
+app.use(
+  session({
+    secret: ' secret ',
+    resave: 'false,',
+    saveUninitialized: false,
+  })
+);
+
+app.use;
 app.use(express.urlencoded({ extended: false }));
 
 app.get('/', (req, res) => {
@@ -48,16 +60,36 @@ app.post('/users/register', async (req, res) => {
   if (errors.length > 0) {
     res.render('register', { errors, name, email, password, password_confirm });
   } else {
-    hashedPassword = await bcrypt.hash(password, 10);
+    let hashedPassword = await bcrypt.hash(password, 10);
+    console.log(hashedPassword);
     pool.query(
       `SELECT * FROM users
         WHERE email = $1`,
       [email],
       (err, results) => {
         if (err) {
-          console.log(err);
+          throw err;
         }
         console.log(results.rows);
+        if (results.rows.length > 0) {
+          errors.push({ message: 'You have already registered' });
+          res.render('register', { errors });
+        } else {
+          pool.query(
+            `INSERT INTO users (name,email,password)
+            VALUES ($1, $2,$3)
+            RETURNING id,password `,
+            [name, email, hashedPassword],
+            (err, results) => {
+              if (err) {
+                throw err;
+              }
+              console.log(results.rows);
+              req.flash('success_msg', 'You are successfuly registered');
+              res.redirect('/users/login');
+            }
+          );
+        }
       }
     );
   }
