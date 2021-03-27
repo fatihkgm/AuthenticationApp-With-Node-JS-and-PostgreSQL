@@ -39,7 +39,7 @@
       placeholder="Password"
       required
     />
-    <label for="password_confirm" class="sr-only">Password (Confirm )</label>
+    <label for="password" class="sr-only">Password (Confirm )</label>
     <input
       type="password"
       id="password_confirm"
@@ -49,13 +49,13 @@
       required
     /><br />
 
-    <button
-      action="register"
+    <input
       type="submit"
+      value="Register"
       class="btn btn-lg btn-primary btn-block"
     >
-      Sign Up
-    </button>
+
+    </input>
     <p class="help-block mb-3 text-muted">
       <% if (typeof errors != 'undefined') { %><% errors.forEach(error => { %>
       <p class="help-block  mb-3 text-muted">*<%= error.message %></p>

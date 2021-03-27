@@ -16,6 +16,11 @@
       <p class="help-block  mb-3 text-muted"><%= messages.success_msg %></p>
       <% } %>
     </p>
+    <p>
+      <% if (messages.error) { %>
+      <p class="help-block  mb-3 text-muted"><%= messages.error %></p>
+      <% } %>
+    </p>
 
 
     <label for="inputEmail" class="sr-only">Email address</label>
@@ -36,9 +41,9 @@
       required
     />
     <br />
-    <button type="submit" class="btn btn-lg btn-primary btn-block">
-      Sign in
-    </button>
+    <input type="submit" value="Login" class="btn btn-lg btn-primary btn-block">
+     
+    </input>
     <p class="help-block mt-5 mb-3 text-muted">
       Don't have an account.!
       <a href="/users/register"> Register </a>
