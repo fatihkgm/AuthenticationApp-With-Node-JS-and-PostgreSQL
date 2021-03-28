@@ -23,4 +23,7 @@ https://getbootstrap.com/docs/4.0/examples/sign-in/
 📌 Font awesome cdn
 https://pro.fontawesome.com/releases/v5.10.0/css/all.css
 
-
+👉 Depying Heroku
+✔️ Created Procfile
+✔️ Installed resource on add-ons "Heroku-Postgres "
+✔️ Created a Config Vars setting .
