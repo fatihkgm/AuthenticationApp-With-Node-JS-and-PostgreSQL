@@ -1,5 +1,7 @@
 # User-Authentication-With-Node-JS-and-PostgreSQL
 
+☑️ Step i followed...!
+
 📌 Node JS application with Postgres (SQL) database.
 
 📌 Postgres (SQL) database used to store user details ( names, email addresses and passwords )
