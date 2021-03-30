@@ -19,7 +19,6 @@ app.use(
     resave: 'false,',
     saveUninitialized: false,
   })
-  
 );
 app.use(passport.initialize());
 app.use(passport.session());
@@ -47,13 +46,14 @@ app.get('/users/logout', (req, res) => {
 
 app.post('/users/register', async (req, res) => {
   let { name, email, password, password_confirm } = req.body;
+  let errors = [];
+
   console.log({
     name,
     email,
     password,
     password_confirm,
   });
-  let errors = [];
 
   if (!name || !email || !password || !password_confirm) {
     errors.push({ message: 'Please enter all field correctly' });

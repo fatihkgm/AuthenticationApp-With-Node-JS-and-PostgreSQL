@@ -36,7 +36,6 @@ function initialize(passport) {
       {
         usernameField: 'email',
         passwordField: 'password',
-        passReqToCallback: true,
       },
       authenticateUser
     )
